@@ -1,0 +1,529 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark gray text */
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    color: #000000; /* Black headings */
+}
+
+/* Header */
+.header {
+    background-color: #000000; /* Black header */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff7f50; /* Highlight color */
+}
+
+.cta-btn {
+    background-color: #ff7f50; /* Highlight button color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #e65c3c; /* Darker highlight on hover */
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)); /* Gradient */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    padding-top: 100px; /* Adjust for fixed header */
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure the video stays behind the text */
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1s forwards 0.5s; /* Animation for h1 */
+}
+
+.hero h1 span {
+    color: #ffffff; /* White color for highlighted text */
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1s forwards 1s; /* Animation for paragraph */
+}
+
+.hero .cta-btn {
+    font-size: 20px;
+    padding: 15px 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards 1.5s; /* Animation for button */
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Products Section */
+.products {
+    background-color: #f8f8f8; /* Light gray for contrast */
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #000000; /* Black heading */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase for emphasis */
+}
+
+.product-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Spacing between cards */
+}
+
+.card {
+    background-color: #ffffff; /* White card background */
+    padding: 30px;
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1); /* Larger shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Hide overflow for rounded corners */
+    position: relative; /* Positioning context for pseudo-element */
+    text-align: left; /* Align text to the left for better readability */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.card img {
+    border-radius: 12px; /* Rounded corners for images */
+    margin-bottom: 20px;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Cover for better image fitting */
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #000; /* Black heading */
+}
+
+.card p {
+    font-size: 16px;
+    color: #666; /* Dark gray for description */
+    margin-bottom: 15px; /* Added space below description */
+}
+
+/* Decorative Element */
+.card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px; /* Height of decorative bar */
+    background-color: #ff7f50; /* Highlight color */
+    bottom: 0; /* Position at the bottom */
+    left: 0;
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s ease; /* Animation for appearance */
+}
+
+.card:hover::after {
+    transform: scaleX(1); /* Show on hover */
+}
+/* About Us Section */
+.about {
+    padding: 80px 50px;
+    background: linear-gradient(135deg, #000000, #ffffff); /* Black and white gradient */
+    color: white;
+    text-align: center;
+}
+
+/* Main Content Container */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    margin-bottom: 50px; /* Space between sections */
+}
+
+/* About Text Box */
+.about-text {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background for text */
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s forwards; /* Animation for text */
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Vision Section */
+.vision-container {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background for vision */
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s forwards 0.5s; /* Animation for vision */
+}
+
+.vision-container h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Values Section */
+.values {
+    display: flex; /* Use flex layout for values */
+    justify-content: center; /* Center values */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 30px; /* Space between cards */
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background for cards */
+    color: #333;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 250px; /* Fixed width for cards */
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.value-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Contact Section */
+.contact {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #f4f4f4; /* Light gray */
+    border-top: 5px solid #000000; /* Black top border for emphasis */
+    position: relative; /* For positioning the overlay */
+    overflow: hidden; /* Prevents overflow from pseudo-elements */
+}
+
+.contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1); /* Light overlay */
+    z-index: 1; /* Behind the content */
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #000000; /* Black color for contact heading */
+    animation: fadeInDown 1s forwards; /* Animation for heading */
+    position: relative; /* For layering */
+    z-index: 2; /* Above the overlay */
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-width: 600px; /* Added max-width for better alignment */
+    margin: 0 auto; /* Centered the form */
+    position: relative; /* For layering */
+    z-index: 2; /* Above the overlay */
+}
+
+.contact input,
+.contact textarea {
+    width: 100%; /* Set to full width */
+    max-width: 500px; /* Added max-width for input fields */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Light gray border */
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition for border color */
+    z-index: 2; /* Above the overlay */
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: #000000; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Shadow on focus */
+}
+
+.contact textarea {
+    height: 150px;
+}
+
+.contact button {
+    background-color: #000000; /* Black button */
+    color: white;
+    padding: 15px 30px; /* Increased padding for a more prominent button */
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform for hover */
+    position: relative; /* For layering */
+    z-index: 2; /* Above the overlay */
+}
+
+.contact button:hover {
+    background-color: #444444; /* Darker gray on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .contact h2 {
+        font-size: 28px; /* Smaller font on mobile */
+    }
+    .contact input,
+    .contact textarea,
+    .contact button {
+        max-width: 100%; /* Full width on mobile */
+    }
+}
+
+/* Blog Section */
+.blog {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.blog h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #0b3d91; /* Header color */
+    animation: fadeInDown 1s forwards; /* Animation for heading */
+}
+
+.blog-posts {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between posts */
+    max-width: 1200px; /* Limit the width */
+    margin: 0 auto; /* Center the posts */
+}
+
+.post {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 45%; /* Adjust width for responsiveness */
+    position: relative; /* For positioning effect */
+    overflow: hidden; /* To contain shadows and hover effects */
+}
+
+.post:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.post h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #000000; /* Heading color */
+}
+
+.post p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Footer */
+.footer {
+    background-color: #000000; /* Black footer */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative; /* Position relative for internal positioning */
+    margin-top: auto; /* Push the footer to the bottom of the page */
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+.footer a {
+    color: #ff7f50; /* Bright color for footer links */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transition effect for link color */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #ffffff; /* Change color on hover for better visibility */
+}
+
+/* Unique Styles for Footer */
+.footer .social-icons {
+    margin-top: 10px;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+    font-size: 20px; /* Increase icon size */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .footer p {
+        font-size: 14px; /* Smaller text on mobile */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .products .product-cards {
+        flex-direction: column;
+        align-items: center; /* Center align cards on smaller screens */
+    }
+
+    .card {
+        width: 90%; /* Full width for smaller screens */
+    }
+
+    .values {
+        flex-direction: column; /* Stack value cards vertically */
+    }
+
+    .value-card {
+        width: 100%; /* Full width for value cards */
+    }
+
+    .contact form {
+        width: 90%; /* Full width for contact form */
+    }
+}
